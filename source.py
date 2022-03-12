@@ -4,7 +4,6 @@ past_guesses = []
 
 print("Guess the number between 1-100")
 print("If you're far from my number I'll say 'cold!''")
-print("If your guess is within 10 numbers away from my number,  I'll say 'warm!'")
 print("When you're closer than your previous guess, I'll say: 'warmer!'")
 print("When you're farther from the number than your previous guess I'll say 'colder!'")
 
@@ -30,7 +29,4 @@ while True:
                 continue
             if abs(guess-my_number) > 10:
                 print("Cold!")
-                past_guesses.append(guess)
-            if abs(guess-my_number) <= 10:
-                print("Warm!")
                 past_guesses.append(guess)
