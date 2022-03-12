@@ -19,11 +19,11 @@ while True:
             if guess == my_number:
                 print(f"Congratulations! Your guess: '{guess}' - was correct! It took you {len(past_guesses)+1} tries to guess the number!")
                 break
-            if len(past_guesses) > 1 and abs(guess-my_number) < abs(past_guesses[-1]-my_number):
+            if len(past_guesses) > 0 and abs(guess-my_number) < abs(past_guesses[-1]-my_number):
                 print("Warmer!")
                 past_guesses.append(guess)
                 continue
-            if len(past_guesses) > 1 and abs(guess-my_number) > abs(past_guesses[-1]-my_number):
+            if len(past_guesses) > 0 and abs(guess-my_number) > abs(past_guesses[-1]-my_number):
                 print("Colder!")
                 past_guesses.append(guess)
                 continue
