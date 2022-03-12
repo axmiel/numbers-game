@@ -28,9 +28,9 @@ while True:
                 print("Colder!")
                 past_guesses.append(guess)
                 continue
-            if abs(guess-my_number) <= 10:
-                print("Warm!")
-                past_guesses.append(guess)
             if abs(guess-my_number) > 10:
                 print("Cold!")
+                past_guesses.append(guess)
+            if abs(guess-my_number) <= 10:
+                print("Warm!")
                 past_guesses.append(guess)
