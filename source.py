@@ -9,24 +9,28 @@ print("When you're closer than your previous guess, I'll say: 'warmer!'")
 print("When you're farther from the number than your previous guess I'll say 'colder!'")
 
 while True:
-    guess = int(input("Enter your guess: "))
-    if guess > 100 or guess < 1:
-        print("Your number must be between 1-100")
+    try:
+        guess = int(input("Enter your guess: "))
+    except ValueError:
+        print("Your guess must be a whole number between 1-100")
     else:
-        if guess == my_number:
-            print(f"Congratulations! Your guess: '{guess}' - was correct! It took you {len(past_guesses)+1} tries to guess the number!")
-            break
-        if len(past_guesses) > 1 and abs(guess-my_number) < abs(past_guesses[-1]-my_number):
-            print("Warmer!")
-            past_guesses.append(guess)
-            continue
-        if len(past_guesses) > 1 and abs(guess-my_number) > abs(past_guesses[-1]-my_number):
-            print("Colder!")
-            past_guesses.append(guess)
-            continue
-        if abs(guess-my_number) <= 10:
-            print("Warm!")
-            past_guesses.append(guess)
-        if abs(guess-my_number) > 10:
-            print("Cold!")
-            past_guesses.append(guess)
+        if guess > 100 or guess < 1:
+            print("Your number must be between 1-100")
+        else:
+            if guess == my_number:
+                print(f"Congratulations! Your guess: '{guess}' - was correct! It took you {len(past_guesses)+1} tries to guess the number!")
+                break
+            if len(past_guesses) > 1 and abs(guess-my_number) < abs(past_guesses[-1]-my_number):
+                print("Warmer!")
+                past_guesses.append(guess)
+                continue
+            if len(past_guesses) > 1 and abs(guess-my_number) > abs(past_guesses[-1]-my_number):
+                print("Colder!")
+                past_guesses.append(guess)
+                continue
+            if abs(guess-my_number) <= 10:
+                print("Warm!")
+                past_guesses.append(guess)
+            if abs(guess-my_number) > 10:
+                print("Cold!")
+                past_guesses.append(guess)
